@@ -27,9 +27,7 @@ public class ExpenseServiceImpl implements ExpenseService {
     }
 
     public List<Expense> getExpensesByDateRange(String userId, LocalDate startDate, LocalDate endDate) {
-        System.out.println("Querying for UserId: " + userId + ", StartDate: " + startDate + ", EndDate: " + endDate);
         List<Expense> expenses = expenseRepo.findByUserIdAndDateBetween(userId, startDate, endDate);
-        System.out.println("Expenses Returned: " + expenses);
         return expenses;
     }
 

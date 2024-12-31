@@ -35,15 +35,12 @@ public class ExpenseController {
 
     @GetMapping("/{userId}/{startDate}/{endDate}")
 public List<Expense> GetExpensesByDateRange(@PathVariable String userId, @PathVariable String startDate, @PathVariable String endDate) {
-    System.out.println("UserId: " + userId);
-    System.out.println("StartDate: " + startDate);
-    System.out.println("EndDate: " + endDate);
+    LocalDate start = LocalDate.parse(startDate);
+    LocalDate end = LocalDate.parse(endDate);
 
-    List<Expense> expenses = expenseService.getExpensesByDateRange(userId, LocalDate.parse(startDate), LocalDate.parse(endDate));
-    System.out.println("Expenses Found: " + expenses);
-
-    return expenses;
+    return expenseService.getExpensesByDateRange(userId, start, end);
 }
+
 
 
     @PutMapping("/{id}")

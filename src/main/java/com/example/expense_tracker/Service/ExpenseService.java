@@ -11,4 +11,6 @@ public interface ExpenseService {
     List<Expense> getExpensesByDateRange(String userId,LocalDate starDate,LocalDate endDate);
     Expense updateExpense(String id, Expense expense);
     void deleteExpense(String id);
+    List<Expense> getExpensesByUserIdAndCategory(String userd,String category);
+    List<Expense> getExpensesByUserIdAndCategoryAndDateRange(String userId, String category, LocalDate startDate, LocalDate endDate);
 }

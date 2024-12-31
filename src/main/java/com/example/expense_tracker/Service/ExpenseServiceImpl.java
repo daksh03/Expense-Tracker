@@ -26,9 +26,11 @@ public class ExpenseServiceImpl implements ExpenseService {
         return expenseRepo.findByUserId(userId);
     }
 
-    @Override
-    public List<Expense> getExpensesByDateRange(String userId,LocalDate startDate,LocalDate endDate) {
-        return expenseRepo.findByUserIdAndDateBetween(userId, startDate, endDate);
+    public List<Expense> getExpensesByDateRange(String userId, LocalDate startDate, LocalDate endDate) {
+        System.out.println("Querying for UserId: " + userId + ", StartDate: " + startDate + ", EndDate: " + endDate);
+        List<Expense> expenses = expenseRepo.findByUserIdAndDateBetween(userId, startDate, endDate);
+        System.out.println("Expenses Returned: " + expenses);
+        return expenses;
     }
 
     @Override
@@ -47,4 +49,13 @@ public class ExpenseServiceImpl implements ExpenseService {
         expenseRepo.deleteById(id);
     }
     
+    @Override
+    public List<Expense> getExpensesByUserIdAndCategory(String userId, String category) {
+        return expenseRepo.findByUserIdAndCategory( userId, category);
+    }
+
+    @Override
+    public List<Expense> getExpensesByUserIdAndCategoryAndDateRange(String userId, String category, LocalDate startDate, LocalDate endDate) {
+        return expenseRepo.findByUserIdAndCategoryAndDateBetween( userId, category,startDate,endDate);
+    }
 }

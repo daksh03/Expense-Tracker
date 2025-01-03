@@ -3,6 +3,7 @@ package com.example.expense_tracker.Model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import jakarta.annotation.Generated;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;

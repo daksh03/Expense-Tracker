@@ -36,10 +36,14 @@ public class UserController {
         userService.deleteUser(id);
     }
     
-    @GetMapping("/allusers")
+    @GetMapping("/allUsers")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
-    
+
+    @PostMapping("/hello")
+    public String getHello() {
+        return "Hello";
+    }    
     
 }

@@ -27,6 +27,10 @@ public class UserServiceImpl implements UserService{
         if(existingUser.isPresent()) {
             throw new IllegalArgumentException("User with this id exists");
         }
+        Optional<User> newuser = userRepository.findByUsername(user.getUsername());
+        if(newuser.isPresent()) {
+            throw new IllegalArgumentException("User should have different username");
+        }
         if(user.getRole() == null || user.getRole().isEmpty()) {
             user.setRole("User");
         }

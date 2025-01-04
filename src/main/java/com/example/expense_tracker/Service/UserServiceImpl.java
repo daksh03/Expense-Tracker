@@ -27,7 +27,10 @@ public class UserServiceImpl implements UserService{
         if(existingUser.isPresent()) {
             throw new IllegalArgumentException("User with this id exists");
         }
-        user.setPassword("{bcrypt}"+passwordEncoder.encode(user.getPassword()));
+        if(user.getRole() == null || user.getRole().isEmpty()) {
+            user.setRole("User");
+        }
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userRepository.save(user);
     }
 

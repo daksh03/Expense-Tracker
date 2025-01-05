@@ -13,4 +13,7 @@ public interface UserService {
     void deleteUser(String id);
     
     List<User> getAllUsers();
+
+    String verify(User user);
+    
 }

@@ -42,10 +42,9 @@ public class UserController {
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
-
-    @PostMapping("/hello")
-    public String getHello() {
-        return "Hello";
-    }    
     
+    @PostMapping("/login")
+    public String login(@RequestBody User user) {
+        return userService.verify(user);
+    }
 }

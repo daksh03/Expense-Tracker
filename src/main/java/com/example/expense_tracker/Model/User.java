@@ -12,6 +12,16 @@ import lombok.Setter;
 @Data
 @Document(collection = "users")
 public class User {
+    public User(String id, String username, String role, String email, String password) {
+        this.id = id;
+        this.username = username;
+        this.role = role;
+        this.email = email;
+        this.password = password;
+    }
+    public User() {
+        //TODO Auto-generated constructor stub
+    }
     @Id
     private String id;
     private String username;
